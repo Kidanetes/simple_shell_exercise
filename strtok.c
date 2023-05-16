@@ -3,7 +3,7 @@
 #include <string.h>
 int _strlen(char *s);
 char **_strtok(char *str);
-int Number_of_words(char *s)
+int Number_of_words(char *str);
 /**
  * _strlen - returns the length of a string
  * @s: input parameter
