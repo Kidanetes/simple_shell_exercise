@@ -20,30 +20,18 @@ int _strlen(char *s)
 }
 char **_strtok(char *str)
 {
-	int j = 0, i = 0 , len = 0;
-	char **array;
-	char *token;
+	int j = 0, i , len = 0;
+	char **array, char *token;
 
 	if (str == NULL)
 		return (NULL);
-
-	if (str[0] == ' ')
-		i = 0;
-	if (str[0] != ' ' && str[0] != '\0')
-		i = 1;
-	while (str[j] != '\0')
-	{
-		if (str[j] == ' ' && str[j + 1] != ' ' && str[j + 1] != '\0')
-			i++;
-		j++;
-	}
+	i = number_of_words(str);
 	if (i == 0)
 		return (NULL);
 	array = malloc(sizeof(char *) * (i + 1));
 	if (array == NULL)
 		return (NULL);
 	token = strtok(str, " ");
-	j = 0;
 	while (token != NULL)
 	{
 		
@@ -69,19 +57,19 @@ char **_strtok(char *str)
 	array[j] = NULL;
 	return (array);
 }
-
-int main(void)
+int Number_of_words(char *s)
 {
-	int j = 0;
-	char **array;
-	char str[] = "    hello    world    ";
-	array = _strtok(str);
-        while (array != NULL && array[j] != NULL)
-        {
-                printf("%s\n", array[j]);
-                j++;
-        }
-	return (0);
+	int i, j = 0;
+
+	if (str[0] == ' ')
+		i = 0;
+	if (str[0] != ' ' && str[0] != '\0')
+		i = 1;
+	while (str[j] != '\0')
+	{
+		if (str[j] == ' ' && str[j + 1] != ' ' && str[j + 1] != '\0')
+			i++;
+		j++;
+	}
+	return (i);
 }
-
-
