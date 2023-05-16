@@ -3,6 +3,7 @@
 #include <string.h>
 int _strlen(char *s);
 char **_strtok(char *str);
+int Number_of_words(char *s)
 /**
  * _strlen - returns the length of a string
  * @s: input parameter
@@ -57,7 +58,7 @@ char **_strtok(char *str)
 	array[j] = NULL;
 	return (array);
 }
-int Number_of_words(char *s)
+int Number_of_words(char *str)
 {
 	int i, j = 0;
 
@@ -72,4 +73,17 @@ int Number_of_words(char *s)
 		j++;
 	}
 	return (i);
+}
+int main(void)
+{
+        int j = 0;
+        char **array;
+        char str[] = "    hello    world    ";
+        array = _strtok(str);
+        while (array != NULL && array[j] != NULL)
+        {
+                printf("%s\n", array[j]);
+                j++;
+        }
+        return (0);
 }
