@@ -23,7 +23,7 @@ int main(void)
 			printf("%s", token);
 			token = strtok(NULL, " ");
 			if (token != NULL)
-				printf("\n");
+				printf("\n")
 		}
                 printf("$ ");
         }
